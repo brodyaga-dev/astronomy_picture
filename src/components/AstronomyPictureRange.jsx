@@ -41,13 +41,15 @@ const AstronomyPictureRange = () => {
     <>
       {/* {JSON.stringify(data)} */}
       <div className="container mx-auto mt-5">
-        <DatePicker
-          disabledDate={disabledDate}
-          type="dateRange"
-          density="compact"
-          style={{ width: 260 }}
-          onChange={setDateRange}
-        />
+        {data?.error?.code != "OVER_RATE_LIMIT" && (
+          <DatePicker
+            disabledDate={disabledDate}
+            type="dateRange"
+            density="compact"
+            style={{ width: 260 }}
+            onChange={setDateRange}
+          />
+        )}
 
         {dateRange.length > 0 &&
           data?.map((item) => (
